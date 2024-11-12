@@ -1,0 +1,6 @@
+.todo {
+  color: aqua;
+  width: calc(100% / 3);
+  border:  1px solid black;
+  padding: 16px;
+}
