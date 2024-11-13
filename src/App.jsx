@@ -1,31 +1,26 @@
 import "./App.css";
-import Todo from "./components/Todo";
-import Title from "./components/Title";
-import Modal from "./components/Modal";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Nav from "./components/Nav.jsx"
+import Base from "./pages/Base.jsx"
+import About from "./pages/About.jsx"
+import Contact from "./pages/Contact.jsx"
+import Users from "./pages/Users.jsx";
+
 
 function App() {
   return (
-    <div>
-      <Title />
-      <div className="todo__wrapper">
-        <Todo 
-        title="Reach Diamond Cart Status"
-        paragraph="complete 15 more orders to unlock"
-        />
-        <Todo 
-        title="Make more money, study more" 
-        paragraph="complete 15 more orders to unlock"
-        />
-        <Todo 
-        title="Win FES Skool" 
-        paragraph="complete 15 more orders to unlock"
-        />
-        <Modal confirmation="Confirm Delete?" />
-        {/* <Modal confirmation=" Maybe Confirm? " /> */}
-        {/* <Modal confirmation="Confirm Acceptance of Terms?" /> */}
-        </div>
-    </div>
+    
+      <Router>
+<Nav></Nav>
+        <Routes>
+        <Route path='/base' element={<Base />} ></Route>
+        <Route path='/about' element={<About />} ></Route>
+        <Route path='/contact' element={<Contact />} ></Route>
+        <Route path="users/:name" element={ <Users />} ></Route>
+        </Routes>
+      </Router>
+  
   );
-}  
+}
 
 export default App;
